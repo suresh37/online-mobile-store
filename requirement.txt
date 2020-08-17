@@ -1,0 +1,27 @@
+Mobile Store
+================================================================================================
+a.	Store login screen. – contains user name and password. 
+        For now, consider you are owning the store it should validate your credentials only. 
+        Other credentials should show the error message.
+
+b.	Mobiles should be available in database or in memory database. 
+
+c.	After Login page should show the list of books in table <ag-grid> with pagination.
+ 
+d.	The table contains the mobile brand name, price, model and quantity available in store.
+
+e.	Add/Edit/Delete mobile operation should be there.
+
+f.	Mobile Form: Brand Name, price, model, OS type, year of the mobile model.
+        All fields are required. Price should be >= 8k and <= 99k
+
+g.	In Step C, the table should contain the first column as check box.  They can select at most 3 rows to compare the specification of the mobiles. 
+ 
+h.	If the user is selected at most 3 rows then show compare button at the top of the table, 
+        after clicking compare button open new popup and that popup should contain the specification of all these 3 mobiles.
+
+i.	Add the selected mobile to the cart. Cart add/remove/edit should be there.
+
+j.	Common header which contains navigation menu and footer should be there for all the pages. 
+
+Note: mostly consider functionality and logic part. Don’t concentrate much on CSS. Try to use all the angular concepts.
