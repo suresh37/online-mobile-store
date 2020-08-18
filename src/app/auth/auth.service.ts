@@ -8,6 +8,13 @@ import 'rxjs/add/operator/delay';
 export class AuthService {
     isLoggedIn: boolean = false;
 
+    constructor() {
+
+    }
+    ngOnInit() {
+        console.log('Inside Auth Component')
+    }
+
     login(): Observable<boolean> {
         return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
     }

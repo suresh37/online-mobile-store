@@ -15,15 +15,16 @@ export class HomeComponent implements OnInit {
     ];
 
     rowData = [
-        { brandName: 'Redmi', price: 13999, model: 'Note 9 Pro', quantity: 10  },
-        { brandName: 'One Plus', price: 42999 , model: 'OP 8', quantity: 30  },
-        { brandName: 'Realme', price: 15999, model: 'Realme 6', quantity: 7  },
-        { brandName: 'Samsung', price: 14999, model: 'M30s', quantity: 20  },
+        { brandName: 'Redmi', price: 13999, model: 'Note 9 Pro', quantity: 10 },
+        { brandName: 'One Plus', price: 42999, model: 'OP 8', quantity: 30 },
+        { brandName: 'Realme', price: 15999, model: 'Realme 6', quantity: 7 },
+        { brandName: 'Samsung', price: 14999, model: 'M30s', quantity: 20 },
     ];
 
     constructor() { }
 
     ngOnInit() {
+        console.log('Inside Home Component')
     }
 
 }

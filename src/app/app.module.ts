@@ -20,9 +20,9 @@ import {
   MatSlideToggleModule,
   MatSelectModule, // MatOptionModule
 } from '@angular/material';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
+//import { LoginComponent } from './login/login.component';
+//import { HomeComponent } from './home/home.component';
+//import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
 
@@ -30,8 +30,8 @@ import { AuthModule } from './auth/auth.module';
   declarations: [
     AppComponent,
     //LoginComponent,
-    HomeComponent,
-    NavbarComponent,
+    //HomeComponent,
+    //NavbarComponent,
     PageNotFoundComponent
   ],
   imports: [
