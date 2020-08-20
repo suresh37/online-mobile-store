@@ -1,5 +1,16 @@
-<ag-grid-angular  style="width: 700px; height: 500px;" class="ag-theme-balham" [enableFilter]="true" [pagination]="true"
-	[enableSorting]="true" [rowData]="rowData" [columnDefs]="columnDefs">
+
+<div id="bottom"> <h3>Product Grid</h3><br/>
+
+<button (click)="getSelectedRows()">Get Selected Rows</button>
+
+<ag-grid-angular class="ag-theme-alpine"
+    #agGrid
+    style="width: 1000px; height: 1000px;" id="myGrid"
+    [enableFilter]="true" [pagination]="true"
+	[enableSorting]="true" [rowData]="rowData" 
+    [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+    (gridReady)="onGridReady($event)" rowSelection="multiple">
 </ag-grid-angular>
 
 <!-- style="width: 500px; height: 500px;" -->
+</div>
