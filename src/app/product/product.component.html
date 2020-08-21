@@ -1,5 +1,6 @@
 <legend>Product Grid</legend><br />
 
+<button mat-button (click)="openDialog()">Open dialog</button>
 <button (click)="getSelectedRows()">Get Selected Rows</button>
 <input type="text" (input)="onQuickFilterChanged()" id="quickFilter" placeholder="quick filter..." />
 <ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [enableFilter]="true" [pagination]="true"
@@ -7,4 +8,5 @@
     (gridReady)="onGridReady($event)" rowSelection="multiple"
     style='height: 400px;width:100%; display: flex; flex-direction: column;'>
 </ag-grid-angular>
+
 <!-- style="width: 500px; height: 500px;" style="width: 1000px; height: 1000px;" -->

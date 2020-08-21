@@ -22,5 +22,11 @@
     "price": 14999,
     "model": "M30s",
     "quantity": 20
+  },
+  {
+    "brandName": "Iphone",
+    "price": 37999,
+    "model": "Iphone SE",
+    "quantity": 15
   }
 ]

@@ -3,6 +3,8 @@ import { AgGridAngular } from "ag-grid-angular";
 //import MobileApiJson from './../../assets/mobile-api.json'; -- read from locaol json
 import { Observable } from 'rxjs';
 import { ProductService } from './product.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProductDialogComponent } from './product-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -36,7 +38,8 @@ export class ProductComponent implements OnInit {
     flex: '1 1 auto'
   };
 
-  constructor(public productService: ProductService) {
+  constructor(public productService: ProductService,
+    public dialog: MatDialog) {
     this.defaultColDef = {
       flex: 1,
       minWidth: 100,
@@ -78,7 +81,10 @@ export class ProductComponent implements OnInit {
     alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
     //const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
     //alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  }
 
+  openDialog() {
+    this.dialog.open(ProductDialogComponent, this.rowData);
   }
 
 }
