@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from './home.component';
-import { HomeRoutingModule } from './home-routing.module';
+import { ProductComponent } from './product.component';
+import { ProductRoutingModule } from './product-routing.module';
 import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
     imports: [
         CommonModule,
-        HomeRoutingModule,
+        ProductRoutingModule,
         AgGridModule.withComponents([])
     ],
     declarations: [
-        HomeComponent
+        ProductComponent
     ],
-    exports: [HomeComponent]
+    exports: [ProductComponent]
 })
-export class HomeModule { }
+export class ProductModule { }

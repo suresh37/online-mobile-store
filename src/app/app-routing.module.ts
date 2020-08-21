@@ -15,7 +15,7 @@ const routes: Routes = [
     } */
   { path: '', loadChildren: 'src/app/navbar/navbar.module#NavbarModule' },
   { path: 'login', component: LoginComponent },
-  /* { path: '**', component: PageNotFoundComponent } */
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 

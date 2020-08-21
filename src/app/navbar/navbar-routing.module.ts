@@ -10,7 +10,7 @@ const routes: Routes = [
         path: '', component: NavbarComponent,
         canActivate: [AuthGuard],
         children: [
-            { path: 'home', loadChildren: 'src/app/home/home.module#HomeModule' }
+            { path: 'products', loadChildren: 'src/app/product/product.module#ProductModule' }
             //{ path: 'login', component: LoginComponent }
             /*  { path: 'members', loadChildren: 'app/members.module#MembersModule' } */
         ]

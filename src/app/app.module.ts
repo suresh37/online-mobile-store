@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ProductService } from './product/product.service';
+import {HttpClientModule} from '@angular/common/http';
 
 import {
   MatToolbarModule,
@@ -36,6 +38,7 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AuthModule,
     AppRoutingModule,
     FlexLayoutModule,
@@ -56,7 +59,7 @@ import { AuthModule } from './auth/auth.module';
     MatProgressSpinnerModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

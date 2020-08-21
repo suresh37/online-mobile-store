@@ -1,14 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
-// import { HttpClient } from '@angular/common/http';
+//import MobileApiJson from './../../assets/mobile-api.json'; -- read from locaol json
+import { Observable } from 'rxjs';
+import { ProductService } from './product.service';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.scss']
 })
-export class HomeComponent implements OnInit {
+@Injectable()
+export class ProductComponent implements OnInit {
   // @ViewChild('agGrid',{static: false}) agGrid: AgGridAngular;
   public gridApi;
   public gridColumnApi;
@@ -20,41 +23,40 @@ export class HomeComponent implements OnInit {
     { headerName: 'Model', field: 'model', width: 100 }, // , editable: true
     { headerName: 'Quantity', field: 'quantity', width: 100 }
   ];
-
-  public rowData = [
+  public rowData;
+  /*  [
     { brandName: 'Redmi', price: 13999, model: 'Note 9 Pro', quantity: 10 },
     { brandName: 'One Plus', price: 42999, model: 'OP 8', quantity: 30 },
     { brandName: 'Realme', price: 15999, model: 'Realme 6', quantity: 7 },
     { brandName: 'Samsung', price: 14999, model: 'M30s', quantity: 20 },
-  ];
+  ]; */
   public style = {
     width: '100%',
     height: '100%',
     flex: '1 1 auto'
   };
 
-  constructor() {
+  constructor(public productService: ProductService) {
     this.defaultColDef = {
       flex: 1,
       minWidth: 100,
       resizable: true
     };
+    //console.log('Reading local json file'); console.log(MobileApiJson); //this.rowData= MobileApiJson;
+    productService.getJSON().subscribe(res => {
+      this.rowData = res;
+    });
   }
 
   ngOnInit() {
     console.log('Inside Home Component')
   }
 
-  onGridReady(params) {
+  public onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    this.rowData = [
-      { brandName: 'Redmi', price: 13999, model: 'Note 9 Pro', quantity: 10 },
-      { brandName: 'One Plus', price: 42999, model: 'OP 8', quantity: 30 },
-      { brandName: 'Realme', price: 15999, model: 'Realme 6', quantity: 7 },
-      { brandName: 'Samsung', price: 14999, model: 'M30s', quantity: 20 },
-    ];
+    //this.rowData= MobileApiJson;
 
     /*  this.http
        .get(
@@ -65,23 +67,17 @@ export class HomeComponent implements OnInit {
        }); */
   }
 
-  onQuickFilterChanged() {
+  public onQuickFilterChanged() {
     this.gridApi.setQuickFilter(document.getElementById('quickFilter')['value']);
   }
 
-  getSelectedRows() {
+  public getSelectedRows() {
     //const selectedNodes = this.agGrid.api.getSelectedNodes();
-    const selectedNodes = this.gridApi.getSelectedNodes(); // api.getSelectedRows():
+    let selectedNodes = this.gridApi.getSelectedNodes(); // api.getSelectedRows():
     let selectedData = selectedNodes.map(node => node.data);
     alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
-    //const selectedData = selectedNodes.map( node => node.data );
     //const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
     //alert(`Selected nodes: ${selectedDataStringPresentation}`);
-
-    /*  let selectedNodes = this.gridApi.getSelectedNodes();
-     let selectedData = selectedNodes.map(node => node.data);
-     alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
-     return selectedData; */
 
   }
 

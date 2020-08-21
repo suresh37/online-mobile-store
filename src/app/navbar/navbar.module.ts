@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NavbarComponent } from './navbar.component';
 import { NavbarRoutingModule } from './navbar-routing.module';
-import { HomeComponent } from './../home/home.component';
+//import { ProductComponent } from './../product/product.component';
 
 @NgModule({
     imports: [
