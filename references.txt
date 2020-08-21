@@ -4,3 +4,10 @@ https://stackoverflow.com/questions/44544164/angular-io-routing-for-login-page-a
 
 Multiple Row selection
 https://blog.ag-grid.com/how-to-get-the-data-of-selected-rows-in-ag-grid/
+
+get data from local json
+https://www.angularjswiki.com/angular/how-to-read-local-json-files-in-angular/
+https://stackoverflow.com/questions/47206924/angular-5-service-to-read-local-json-file
+
+Mobile REST API
+https://github.com/anagilda/the-mobile-store-REST-API
