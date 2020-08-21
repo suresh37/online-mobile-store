@@ -10,9 +10,11 @@ const routes: Routes = [
         path: '', component: NavbarComponent,
         canActivate: [AuthGuard],
         children: [
-            { path: 'home', loadChildren: 'src/app/home/home.module#HomeModule' },
-            { path: 'products', loadChildren: 'src/app/product/product.module#ProductModule' },
+            { path: 'home', loadChildren: () => import('src/app/home/home.module').then(m => m.HomeModule) },
+            { path: 'products', loadChildren: () => import('src/app/product/product.module').then(m => m.ProductModule) },
+            { path: 'contact', loadChildren: () => import('src/app/contact/contact.module').then(m => m.ContactModule)},
             { path: '',  redirectTo: '/home', pathMatch: 'full'  }
+
             //{ path: 'login', component: LoginComponent }
         ]
     }

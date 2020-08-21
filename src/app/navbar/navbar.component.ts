@@ -12,8 +12,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Inside navbar component')
-
+   /*  console.log('Inside navbar component') */
   }
 
 }

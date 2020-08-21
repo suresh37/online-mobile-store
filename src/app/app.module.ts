@@ -27,6 +27,7 @@ import {
 //import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
+//import { ContactComponent } from './contact/contact.component';
 //import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AuthModule } from './auth/auth.module';
     //LoginComponent,
     //HomeComponent,
     //NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    //ContactComponent
   ],
   imports: [
     BrowserModule,

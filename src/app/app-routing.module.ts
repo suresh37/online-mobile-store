@@ -5,15 +5,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-  /*   {
-      path: 'home',
-      component: HomeComponent
-    },
-    {
-      path: 'login',
-      component: LoginComponent
-    } */
-  { path: '', loadChildren: 'src/app/navbar/navbar.module#NavbarModule' },
+  /*   { path: 'home',  component: HomeComponent },
+       { path: 'login', component: LoginComponent } */
+ /*  { path: '', loadChildren: 'src/app/navbar/navbar.module#NavbarModule' }, */
+  { path: '', loadChildren: () => import('src/app/navbar/navbar.module').then(m => m.NavbarModule) },
   { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ]
