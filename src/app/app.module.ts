@@ -27,6 +27,7 @@ import {
 //import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
+//import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
