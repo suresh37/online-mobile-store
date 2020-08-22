@@ -21,3 +21,6 @@ Contact form - https://codepen.io/colorlib/pen/KVoZyv
 Dialog box doesnt open - https://stackoverflow.com/questions/48481733/matdialog-doesnt-open-as-dialog
 
 Edit button in grid - https://stackoverflow.com/questions/57409807/edit-table-row-inline-on-click-of-edit-in-angular
+ag-grid - Cell Renderer
+https://www.ag-grid.com/javascript-grid-cell-rendering-components/
+https://blog.ag-grid.com/cell-renderers-in-ag-grid-every-different-flavour/

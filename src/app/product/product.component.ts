@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
+//import { AllCommunityModules } from '@ag-grid-community/all-modules';
 //import MobileApiJson from './../../assets/mobile-api.json'; -- read from locaol json
 import { Observable } from 'rxjs';
 import { ProductService } from './services/product.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { ActionRenderer } from './cell-renderer/action-renderer.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -17,15 +19,23 @@ export class ProductComponent implements OnInit {
   // @ViewChild('agGrid',{static: false}) agGrid: AgGridAngular;
   public gridApi;
   public gridColumnApi;
+  public context;
+  //public modules: any[] = AllCommunityModules;
   public defaultColDef;
+  public frameworkComponents;
   public columnDefs = [
     { headerName: '', field: 'make', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Brand Name', field: 'brandName', width: 100 },
     { headerName: 'Price', field: 'price', width: 100 },
     { headerName: 'Model', field: 'model', width: 100 }, // , editable: true
-    { headerName: 'Quantity', field: 'quantity', width: 100 }
+    { headerName: 'Quantity', field: 'quantity', width: 100 },
+    {
+      headerName: 'Action', field: 'id', width: 180,
+      cellRenderer: 'actionRenderer', colId: 'params'
+    }
   ];
   public rowData;
+
   /*  [
     { brandName: 'Redmi', price: 13999, model: 'Note 9 Pro', quantity: 10 },
     { brandName: 'One Plus', price: 42999, model: 'OP 8', quantity: 30 },
@@ -40,13 +50,24 @@ export class ProductComponent implements OnInit {
 
   constructor(public productService: ProductService,
     public dialog: MatDialog) {
+    this.context = { componentParent: this };
     this.defaultColDef = {
+      editable: true,
+      sortable: true,
       flex: 1,
       minWidth: 100,
+      filter: true,
       resizable: true
+    };
+    this.frameworkComponents = {
+      actionRenderer: ActionRenderer,
     };
     //console.log('Reading local json file'); console.log(MobileApiJson); //this.rowData= MobileApiJson;
     productService.getJSON().subscribe(res => {
+      console.log(res);
+      res.forEach(element => {
+        element.os = 'Android';
+      });
       this.rowData = res;
     });
   }
@@ -91,6 +112,17 @@ export class ProductComponent implements OnInit {
     /*dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });*/
+  }
+  // invoke method from renderer
+  methodFromParent(cell) {
+    alert('Parent Component Method from ' + cell + '!');
+  }
+  invokeShowMobileDetailMethodFromParent(cell) {
+    console.log("Show Mobile detail is invoked")
+    window.alert(JSON.stringify(cell));
+    this.dialog.open(ProductDialogComponent, {
+      data: cell
+    });
   }
 
 }

@@ -1,14 +1,21 @@
-<h1 mat-dialog-title>Sample dialog box</h1>
+<h1 mat-dialog-title>View Mobile Details</h1>
+<hr>
 <div mat-dialog-content>
-    Sample Content
+    Show Product Details
     <ul>
         <li>
-            Text 1
+            Brand Name: {{data?.brandName}}
         </li>
         <li>
-            Text 2
+            Price : {{data?.price}}
         </li>
         <li>
-            Text 3
+            Model: {{data?.model}}
+        </li>
+        <li>
+            Quantity: {{data?.quantity}}
+        </li>
+        <li>
+            OS: {{data?.os}}
         </li>
     </ul>
