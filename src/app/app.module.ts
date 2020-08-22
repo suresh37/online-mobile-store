@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { ProductService } from './product/product.service';
-import {HttpClientModule} from '@angular/common/http';
+import { ProductService } from './product/services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   MatToolbarModule,
@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthModule } from './auth/auth.module';
 //import { ContactComponent } from './contact/contact.component';
 //import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [

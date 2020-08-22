@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { AgGridAngular } from "ag-grid-angular";
 //import MobileApiJson from './../../assets/mobile-api.json'; -- read from locaol json
 import { Observable } from 'rxjs';
-import { ProductService } from './product.service';
+import { ProductService } from './services/product.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProductDialogComponent } from './product-dialog.component';
+import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -85,6 +85,18 @@ export class ProductComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(ProductDialogComponent, this.rowData);
+
+    //const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    /*dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });*/
   }
 
 }
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog { }
