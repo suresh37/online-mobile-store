@@ -14,3 +14,6 @@ https://github.com/anagilda/the-mobile-store-REST-API
 
 Dialog box - Material
 https://stackblitz.com/angular/jbmdjmgbdly?file=src%2Fapp%2Fdialog-data-example-dialog.html
+
+Page not found snippet - https://codepen.io/saransh/pen/aezht
+Contact form - https://codepen.io/colorlib/pen/KVoZyv
