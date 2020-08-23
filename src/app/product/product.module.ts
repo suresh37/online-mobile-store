@@ -7,6 +7,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { SharedModule } from './../shared/shared.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
+import { ProductEditDialogComponent } from './product-dialog/product-edit-dialog.component';
 
 @NgModule({
     imports: [
@@ -18,10 +19,11 @@ import { ActionRenderer } from './cell-renderer/action-renderer.component';
     declarations: [
         ProductComponent,
         DialogContentExampleDialog,
+        ProductEditDialogComponent,
         ProductDialogComponent,
         ActionRenderer
     ],
-    exports: [ProductComponent, ProductDialogComponent],
-    entryComponents: [DialogContentExampleDialog, ProductDialogComponent]
+    exports: [ProductComponent],
+    entryComponents: [DialogContentExampleDialog, ProductDialogComponent, ProductEditDialogComponent]
 })
 export class ProductModule { }

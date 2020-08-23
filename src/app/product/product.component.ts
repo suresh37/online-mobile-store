@@ -7,6 +7,7 @@ import { ProductService } from './services/product.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
+import { ProductEditDialogComponent } from './product-dialog/product-edit-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -114,12 +115,25 @@ export class ProductComponent implements OnInit {
     });*/
   }
   // invoke method from renderer
-  methodFromParent(cell) {
+  public methodFromParent(cell) {
     alert('Parent Component Method from ' + cell + '!');
   }
-  invokeShowMobileDetailMethodFromParent(cell) {
+
+  public showMobileDetailFromParent(cell) {
     console.log("Show Mobile detail is invoked")
-    window.alert(JSON.stringify(cell));
+    //window.alert(JSON.stringify(cell));
+    this.dialog.open(ProductDialogComponent, {
+      data: cell
+    });
+  }
+
+  public editMobileDetailFromParent(cell) {
+    this.dialog.open(ProductEditDialogComponent, {
+      data: cell
+    });
+  }
+
+  public deleteMobileDetailFromParent(cell) {
     this.dialog.open(ProductDialogComponent, {
       data: cell
     });

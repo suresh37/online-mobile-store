@@ -3,7 +3,13 @@
     </button></span> -->
 
 <div class="button-container">
-    <button (click)="invokeShowMobileDetailMethod()" mat-fab color="blue" aria-label="view icon">
+    <button (click)="invokeShowMobileDetailMethod()" mat-button color="primary" aria-label="view icon">
         <mat-icon>visibility</mat-icon>
+    </button>
+    <button (click)="invokeEditMobileDetailMethod()" mat-button color="primary" aria-label="edit icon">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button (click)="invokeDeleteMobileDetailMethod()" mat-button color="primary" aria-label="delete icon">
+        <mat-icon>delete</mat-icon>
     </button>
 </div>

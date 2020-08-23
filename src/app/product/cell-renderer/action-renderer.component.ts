@@ -23,8 +23,15 @@ export class ActionRenderer implements ICellRendererAngularComp {
 
     public invokeShowMobileDetailMethod() {
         console.log(this.params);
-        this.params.context.componentParent.invokeShowMobileDetailMethodFromParent(this.params.data);
-
+        this.params.context.componentParent.showMobileDetailFromParent(this.params.data);
+    }
+    public invokeEditMobileDetailMethod() {
+        console.log(this.params);
+        this.params.context.componentParent.editMobileDetailFromParent(this.params.data);
+    }
+    public invokeDeleteMobileDetailMethod() {
+        console.log(this.params);
+        this.params.context.componentParent.deleteMobileDetailFromParent(this.params.data);
     }
 
     refresh(): boolean {
