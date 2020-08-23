@@ -20,6 +20,6 @@ export class MessageDialogComponent {
     }
 
     close() {
-        this.dialogRef.close();
+        this.dialogRef.close("message dialog closed");
     }
 }

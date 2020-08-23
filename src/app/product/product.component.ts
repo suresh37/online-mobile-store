@@ -107,7 +107,11 @@ export class ProductComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ProductDialogComponent, this.rowData);
+    const dialogConfig = new MatDialogConfig();
+    //dialogConfig.width = "600px";
+    //dialogConfig.height = "480px";
+    dialogConfig.data = this.rowData;
+    this.dialog.open(ProductDialogComponent, dialogConfig);
     //const dialogRef = this.dialog.open(DialogContentExampleDialog);
     /*dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -127,9 +131,27 @@ export class ProductComponent implements OnInit {
   }
 
   public editMobileDetailFromParent(cell) {
-    this.dialog.open(ProductEditDialogComponent, {
+    const dialogRef = this.dialog.open(ProductEditDialogComponent, {
       data: cell
     });
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data)
+        var tempData = this.rowData;
+        var index = tempData.findIndex((obj => obj.id == data.id));
+        /* tempData[index].brandName = data.brandName;
+        tempData[index].price = data.price;
+        tempData[index].model = data.model;
+        tempData[index].quantity = data.quantity;
+        tempData[index].os = data.os;
+        console.log("After updating values", tempData[index]);
+        this.rowData = tempData; */
+        // updating row data
+        var rowNode = this.gridApi.getRowNode(index);
+        rowNode.setData(data);
+
+      }
+    );
   }
 
   public deleteMobileDetailFromParent(cell) {
