@@ -4,10 +4,11 @@ import { AgGridAngular } from "ag-grid-angular";
 //import MobileApiJson from './../../assets/mobile-api.json'; -- read from locaol json
 import { Observable } from 'rxjs';
 import { ProductService } from './services/product.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
-import { ProductEditDialogComponent } from './product-dialog/product-edit-dialog.component';
+import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -107,9 +108,7 @@ export class ProductComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(ProductDialogComponent, this.rowData);
-
     //const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
     /*dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });*/
@@ -134,9 +133,25 @@ export class ProductComponent implements OnInit {
   }
 
   public deleteMobileDetailFromParent(cell) {
-    this.dialog.open(ProductDialogComponent, {
-      data: cell
-    });
+    console.log(cell);
+    this.rowData = this.rowData.filter(function (element) { return element.id != cell.id; });
+    this.openMessageDialog(cell.brandName + " " + cell.model + " Mobile has been deleted");
+    /*  this.dialog.open(ProductDialogComponent, {
+       data: cell
+     }); */
+  }
+
+  openMessageDialog(message) {
+    let data = { message };
+    const dialogConfig = new MatDialogConfig();
+    //dialogConfig.disableClose = true;
+    //dialogConfig.autoFocus = true;
+    dialogConfig.data = data;
+    const dialogRef = this.dialog.open(MessageDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Dialog output:", data)
+    );
   }
 
 }

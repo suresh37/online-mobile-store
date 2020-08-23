@@ -42,6 +42,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     exports: [
@@ -89,6 +90,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
         OverlayModule,
         PortalModule,
         ScrollingModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class SharedModule { }
