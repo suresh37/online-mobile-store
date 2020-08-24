@@ -2,8 +2,8 @@
 	<mat-toolbar color="primary">
 		<div fxShow="true" fxHide.gt-sm="true">
 			<button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+				<mat-icon>menu</mat-icon>
+			</button>
 		</div>
 
 		<a mat-button class="companyName" routerLink="/">
@@ -11,9 +11,9 @@
 		</a>
 		<span class="nav-spacer"></span>
 		<div fxShow="true" fxHide.lt-md="true">
-			<a mat-button routerLink="/home">Home</a>
-			<a mat-button routerLink="/products">Products</a>
-			<a mat-button routerLink="/contact">Contact</a>
+			<a mat-button routerLink="/home" routerLinkActive="active-link">Home</a>
+			<a mat-button routerLink="/products" routerLinkActive="active-link">Products</a>
+			<a mat-button routerLink="/contact" routerLinkActive="active-link">Contact</a>
 		</div>
 		<span class="icon-spacer" flex></span>
 		<div>

@@ -61,6 +61,16 @@ button{
   text-align: center;
 }
 
+.active-link {
+  background-color: #93c5e9be !important; /* Note: You could also use a custom theme */
+}
+
+/* ::ng-deep .mat-button.active 
+{ 
+  color: yellow !important;
+ }
+ */
+
 /* .mat-sidenav-content{
       font-size: 200%;
       text-align: center;

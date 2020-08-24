@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.showSpinner = true;
     this.loading = true;
     if (this.username != 'admin' || this.password != 'admin') {
-       this.openMessageDialog("Please provide valid username or password");
+      this.openMessageDialog("Please provide valid username or password");
       return;
     }
     this.authService.login().subscribe(
@@ -59,7 +59,10 @@ export class LoginComponent implements OnInit {
     dialogConfig.data = data;
     const dialogRef = this.dialog.open(MessageDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
+      data => {
+        this.showSpinner = false;
+        console.log("Dialog output:", data)
+      }
     );
   }
 
