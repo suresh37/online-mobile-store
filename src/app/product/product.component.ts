@@ -95,7 +95,7 @@ export class ProductComponent implements OnInit {
     this.gridApi.setQuickFilter(document.getElementById('quickFilter')['value']);
   }
 
-  public onPageSizeChanged(newPageSize) {
+  public onPageSizeChanged() {
     var value = (<HTMLInputElement>document.getElementById('page-size')).value;
     this.gridApi.paginationSetPageSize(Number(value));
   }
