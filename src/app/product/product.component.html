@@ -17,13 +17,17 @@
                 <option value="20">20</option>
                 <option value="50">50</option>
             </select>
+            <button style="margin-left: 16px" *ngIf="showCompareOption" mat-raised-button color="primary"
+                (click)="openCampareDialog()">
+                Compare Phones</button>
             <button mat-button (click)="openDialog()">Open dialog</button>
             <button (click)="getSelectedRows()">Get Selected Rows</button>
             <input type="text" (input)="onQuickFilterChanged()" id="quickFilter" placeholder="quick filter..." />
             <ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [pagination]="true"
                 [paginationPageSize]="paginationPageSize" [rowData]="rowData" [columnDefs]="columnDefs"
                 [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)" rowSelection="multiple"
-                [frameworkComponents]="frameworkComponents" [context]="context">
+                [frameworkComponents]="frameworkComponents" [context]="context" (rowClicked)='onRowClicked($event)'
+                (cellClicked)='onCellClicked($event)' (selectionChanged)="onSelectionChanged($event)">
                 <!--  [enableFilter]="true" [enableSorting]="true" -->
                 <!-- style="width: 500px; height: 500px;" style="width: 1000px; height: 1000px;" -->
             </ag-grid-angular>

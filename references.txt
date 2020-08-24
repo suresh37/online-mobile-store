@@ -33,3 +33,6 @@ https://www.techiediaries.com/angular-material-navigation-toolbar-sidenav/
 
 Buttons & icons
 https://material.angular.io/components/button/examples
+
+Pagination
+https://www.ag-grid.com/javascript-grid-pagination/

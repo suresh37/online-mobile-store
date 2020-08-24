@@ -27,6 +27,7 @@ export class ProductComponent implements OnInit {
   public defaultColDef;
   public frameworkComponents;
   public paginationPageSize;
+  public showCompareOption = false;
   public columnDefs = [
     { headerName: '', field: 'make', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Brand Name', field: 'brandName', width: 100 },
@@ -106,6 +107,25 @@ export class ProductComponent implements OnInit {
     alert(`Selected Nodes:\n${JSON.stringify(selectedData)}`);
     //const selectedDataStringPresentation = selectedData.map( node => node.make + ' ' + node.model).join(', ');
     //alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  }
+  onRowClicked(event: any) {
+    console.log('row', event);
+  }
+  onCellClicked(event: any) {
+    console.log('cell', event); // this.grid.api.getSelectedRows();
+  }
+
+  onSelectionChanged(event) {
+    console.log(event); // verify that the method is fired upon selection
+    var rowsSelected = this.gridApi.getSelectedRows().length;
+    if (rowsSelected == 3)
+      this.showCompareOption = true;
+    else
+      this.showCompareOption = false;
+  }
+
+  openCampareDialog() {
+    this.openMessageDialog("Comparing 3 mobiles");
   }
 
   openDialog() {
