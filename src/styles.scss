@@ -4,6 +4,9 @@
 //@import "~ag-grid-community/src/styles/ag-grid.scss";
 //@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
 @import "~ag-grid-community/dist/styles/ag-theme-alpine.min.css";
+// Material Theming
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 /* .ag-theme-alpine {
     @include ag-theme-alpine();
@@ -21,4 +24,9 @@ body {
 
 h1 {
   text-align: center;
+}
+
+*:focus {
+  outline: none !important;
+  border: 0 !important;
 }

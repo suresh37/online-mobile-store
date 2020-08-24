@@ -1,0 +1,28 @@
+.btn {
+    line-height: 0.5;
+  }
+
+  .button-container {
+    //display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 500px;
+    //justify-content: space-between;
+    //flex-wrap: nowrap;
+    display: table-cell;
+    //width: 490px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+/*   ::ng-deep .mat-icon{
+    height:20px !important;
+    width:20px !important;
+    font-size:20px !important;
+} */
+
+/* .mat-btn{
+  width: 100px!important;
+  min-width: unset!important;
+} */

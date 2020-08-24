@@ -1,0 +1,13 @@
+<h3 mat-dialog-title>Message</h3>
+<mat-dialog-content>
+
+    <!-- [formGroup]="form" 
+         <mat-form-field>
+        <input matInput placeholder="Course Description" formControlName="description">
+    </mat-form-field> -->
+    {{message}}
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button id="closeBtn" mat-raised-button color="primary" (click)="close()">Close</button>
+    <!--  <button mat-raised-button color="primary" (click)="save()">Save</button> -->
+</mat-dialog-actions>
