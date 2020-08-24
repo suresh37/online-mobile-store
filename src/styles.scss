@@ -11,7 +11,7 @@
 /* .ag-theme-alpine {
     @include ag-theme-alpine();
 } */
-/* .ag-theme-alpine { 
+/* .ag-theme-alpine {
     @include ag-theme-alpine((
         odd-row-background-color: #CFD8DC
     ));
@@ -29,4 +29,12 @@ h1 {
 *:focus {
   outline: none !important;
   border: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button.mat-raised-button[color="primary"]{
+  background-color: #2874f0;
 }

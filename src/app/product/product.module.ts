@@ -8,7 +8,7 @@ import { SharedModule } from './../shared/shared.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
 import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
-import { MessageDialogComponent } from './message-dialog/message-dialog';
+//import { MessageDialogComponent } from './message-dialog/message-dialog';
 
 @NgModule({
     imports: [
@@ -23,10 +23,10 @@ import { MessageDialogComponent } from './message-dialog/message-dialog';
         DialogContentExampleDialog,
         ProductEditDialogComponent,
         ProductDialogComponent,
-        MessageDialogComponent
+        //MessageDialogComponent
     ],
     exports: [ProductComponent],
     entryComponents: [DialogContentExampleDialog, ProductDialogComponent,
-        ProductEditDialogComponent, MessageDialogComponent]
+        ProductEditDialogComponent] // MessageDialogComponent
 })
 export class ProductModule { }

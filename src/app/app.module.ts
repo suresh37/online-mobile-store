@@ -8,20 +8,14 @@ import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ProductService } from './product/services/product.service';
 import { HttpClientModule } from '@angular/common/http';
-
-import {
-  MatToolbarModule,
-  MatMenuModule,
-  MatIconModule,
-  MatButtonModule,
-  MatTableModule,
-  MatDividerModule,
-  MatProgressSpinnerModule,
-  MatInputModule,
-  MatCardModule,
-  MatSlideToggleModule,
-  MatSelectModule, // MatOptionModule
-} from '@angular/material';
+import { SharedModule } from './shared/shared.module';
+import { MessageDialogComponent } from './product/message-dialog/message-dialog';
+/* import { MatToolbarModule, MatMenuModule,
+  MatIconModule, MatButtonModule, MatTableModule,
+  MatDividerModule, MatProgressSpinnerModule,
+  MatInputModule,  MatCardModule, MatSlideToggleModule,
+  MatSelectModule, MatOptionModule
+} from '@angular/material'; */
 //import { LoginComponent } from './login/login.component';
 //import { HomeComponent } from './home/home.component';
 //import { NavbarComponent } from './navbar/navbar.component';
@@ -38,6 +32,7 @@ import { AuthModule } from './auth/auth.module';
     //HomeComponent,
     //NavbarComponent,
     PageNotFoundComponent,
+    MessageDialogComponent
     //ContactComponent
   ],
   imports: [
@@ -49,7 +44,8 @@ import { AuthModule } from './auth/auth.module';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    SharedModule
+    /* MatToolbarModule,
     MatInputModule,
     MatCardModule,
     MatMenuModule,
@@ -59,11 +55,12 @@ import { AuthModule } from './auth/auth.module';
     MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
-    // MatOptionModule,
+    MatOptionModule,
     MatProgressSpinnerModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]) */
   ],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MessageDialogComponent]
 })
 export class AppModule { }
