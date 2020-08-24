@@ -1,5 +1,67 @@
- #bottom { 
-                position:absolute;                  
-                bottom:0;                          
-                left:0;                          
-            } 
+ #bottom {
+                position:absolute;
+                bottom:0;
+                left:0;
+            }
+
+.mat-toolbar.mat-primary {
+    background: #2874f0;
+    color: #fff;
+}
+
+.companyName{
+    font-size: 100%;
+}
+
+.mat-toolbar{
+  height: 5.5vh;
+}
+
+div {
+    overflow: inherit;
+}
+
+.mat-sidenav-container{
+  background-color: white; //lightskyblue;
+  min-height: 93vh !important;
+}
+.mat-sidenav{
+  width: 150px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 100%;
+    white-space: normal;
+}
+
+button{
+    font-size: 100%;
+    min-width: min-content;
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+
+/* .nav-spacer {
+    flex: 1 1 auto;
+  } */
+.icon-spacer{
+     flex: 1 1 auto;
+  }
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2874f0;
+  color: white;
+  text-align: center;
+}
+
+/* .mat-sidenav-content{
+      font-size: 200%;
+      text-align: center;
+  } */
