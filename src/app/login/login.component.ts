@@ -12,6 +12,7 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/d
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  showSpinner = false;
   model: any = {};
   loading = false;
   returnUrl: string;
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.showSpinner = true;
     this.loading = true;
     if (this.username != 'admin' || this.password != 'admin') {
        this.openMessageDialog("Please provide valid username or password");
@@ -46,6 +48,7 @@ export class LoginComponent implements OnInit {
       error => {
         // this.alertService.error(error);
         this.loading = false;
+        this.showSpinner = false;
       });
 
   }

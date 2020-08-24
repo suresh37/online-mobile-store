@@ -27,7 +27,7 @@
         </tr>
       </table>
     </form>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    <mat-spinner [diameter]="30" [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
   <mat-card-actions>
     <button id="loginBtn" mat-raised-button (click)="login()" color="primary">Login</button>
