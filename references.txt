@@ -11,3 +11,7 @@ https://stackoverflow.com/questions/47206924/angular-5-service-to-read-local-jso
 
 Mobile REST API
 https://github.com/anagilda/the-mobile-store-REST-API
+
+Toolbar
+https://stackoverflow.com/questions/38209713/how-to-make-a-responsive-nav-bar-using-angular-material-2
+https://www.techiediaries.com/angular-material-navigation-toolbar-sidenav/
