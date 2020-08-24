@@ -8,6 +8,7 @@ import { SharedModule } from './../shared/shared.module';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
 import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
+import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
 //import { MessageDialogComponent } from './message-dialog/message-dialog';
 
 @NgModule({
@@ -23,10 +24,11 @@ import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-d
         DialogContentExampleDialog,
         ProductEditDialogComponent,
         ProductDialogComponent,
+        ProductAddDialogComponent
         //MessageDialogComponent
     ],
     exports: [ProductComponent],
     entryComponents: [DialogContentExampleDialog, ProductDialogComponent,
-        ProductEditDialogComponent] // MessageDialogComponent
+        ProductEditDialogComponent, ProductAddDialogComponent] // MessageDialogComponent
 })
 export class ProductModule { }

@@ -4,12 +4,25 @@
             <mat-card-title>Mobile List</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <div id="addBtn">
+                <button (click)="addMobile()" mat-icon-button aria-label="Example icon-button with a heart icon">
+                    <mat-icon>add_circle</mat-icon> <!-- add_circle_outline -->
+                    Add Mobile
+                </button>
+            </div>
+            Page Size:
+            <select (change)="onPageSizeChanged()" id="page-size">
+                <option value="5" selected="">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+            </select>
             <button mat-button (click)="openDialog()">Open dialog</button>
             <button (click)="getSelectedRows()">Get Selected Rows</button>
             <input type="text" (input)="onQuickFilterChanged()" id="quickFilter" placeholder="quick filter..." />
-            <ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [pagination]="true" [rowData]="rowData"
-                [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)"
-                rowSelection="multiple"
+            <ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [pagination]="true"
+                [paginationPageSize]="paginationPageSize" [rowData]="rowData" [columnDefs]="columnDefs"
+                [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)" rowSelection="multiple"
                 [frameworkComponents]="frameworkComponents" [context]="context">
                 <!--  [enableFilter]="true" [enableSorting]="true" -->
                 <!-- style="width: 500px; height: 500px;" style="width: 1000px; height: 1000px;" -->

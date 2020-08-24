@@ -25,7 +25,11 @@ Edit button in grid - https://stackoverflow.com/questions/57409807/edit-table-ro
 ag-grid - Cell Renderer
 https://www.ag-grid.com/javascript-grid-cell-rendering-components/
 https://blog.ag-grid.com/cell-renderers-in-ag-grid-every-different-flavour/
+https://www.ag-grid.com/javascript-grid-data-update/
 
 Toolbar
 https://stackoverflow.com/questions/38209713/how-to-make-a-responsive-nav-bar-using-angular-material-2
 https://www.techiediaries.com/angular-material-navigation-toolbar-sidenav/
+
+Buttons & icons
+https://material.angular.io/components/button/examples

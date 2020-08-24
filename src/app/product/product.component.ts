@@ -9,6 +9,7 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
 import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog';
+import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -25,6 +26,7 @@ export class ProductComponent implements OnInit {
   //public modules: any[] = AllCommunityModules;
   public defaultColDef;
   public frameworkComponents;
+  public paginationPageSize;
   public columnDefs = [
     { headerName: '', field: 'make', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Brand Name', field: 'brandName', width: 100 },
@@ -65,6 +67,7 @@ export class ProductComponent implements OnInit {
     this.frameworkComponents = {
       actionRenderer: ActionRenderer,
     };
+    this.paginationPageSize = 10;
     //console.log('Reading local json file'); console.log(MobileApiJson); //this.rowData= MobileApiJson;
     productService.getJSON().subscribe(res => {
       console.log(res);
@@ -82,20 +85,18 @@ export class ProductComponent implements OnInit {
   public onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
     //this.rowData= MobileApiJson;
-
-    /*  this.http
-       .get(
-         'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json'
-       )
-       .subscribe(data => {
-         this.rowData = data;
-       }); */
+    /*  this.http.get'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json')
+       .subscribe(data => {  this.rowData = data;}); */
   }
 
   public onQuickFilterChanged() {
     this.gridApi.setQuickFilter(document.getElementById('quickFilter')['value']);
+  }
+
+  public onPageSizeChanged(newPageSize) {
+    var value = (<HTMLInputElement>document.getElementById('page-size')).value;
+    this.gridApi.paginationSetPageSize(Number(value));
   }
 
   public getSelectedRows() {
@@ -131,6 +132,17 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  public addMobile() {
+    const dialogRef = this.dialog.open(ProductAddDialogComponent);
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data)
+        var newItems = [data];
+        var res = this.gridApi.applyTransaction({ add: newItems });
+        //this.rowData.push(data);
+      });
+  }
+
   public editMobileDetailFromParent(cell) {
     const dialogRef = this.dialog.open(ProductEditDialogComponent, {
       data: cell
@@ -150,7 +162,6 @@ export class ProductComponent implements OnInit {
         // updating row data
         var rowNode = this.gridApi.getRowNode(index);
         rowNode.setData(data);
-
       }
     );
   }

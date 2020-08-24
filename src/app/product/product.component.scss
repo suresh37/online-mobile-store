@@ -26,4 +26,16 @@
   flex-direction: column;
 }
 
+#addBtn{
+  float: right;
+  color: #2874f0;
+  right: 105px;
+  position: relative;
+}
+
+.mat-icon{
+  position: relative;
+  bottom: 3px;
+}
+
   // ::ng-deep

@@ -1,0 +1,46 @@
+<h3 mat-dialog-title>Update Mobile Details</h3>
+<hr>
+<div class="my-class" mat-dialog-content [formGroup]="form">
+    <p>
+        <mat-form-field>
+            <mat-label>Brand Name </mat-label>
+            <input matInput placeholder="Enter brand name" formControlName="brandName">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Price </mat-label>
+            <input matInput placeholder="Enter price between 8k and 100k" formControlName="price">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Model Name </mat-label>
+            <input matInput placeholder="Enter model" formControlName="model">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Quantity </mat-label>
+            <input matInput placeholder="Enter quantity" formControlName="quantity">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>OS Type </mat-label>
+            <input matInput placeholder="Enter OS type" formControlName="os">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Year of Release </mat-label>
+            <input matInput placeholder="Enter Year Released" formControlName="year">
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button id="closeBtn" mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>
+<!--     Mobile Form: Brand Name, price, model, OS type, year of the mobile model.
+        All fields are required. Price should be >= 8k and <= 99k (x) -->
