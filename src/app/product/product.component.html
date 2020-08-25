@@ -17,12 +17,13 @@
                 <option value="20">20</option>
                 <option value="50">50</option>
             </select>
+            <input class="row-btn-new" type="text" (input)="onQuickFilterChanged()" id="quickFilter"
+                placeholder="quick filter..." />
             <button class="row-btn" mat-raised-button [attr.color]="showCompareOption?'primary':'disabled'"
                 (click)="openCampareDialog()">
                 Compare Phones</button>
             <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
-            <button class="row-btn" (click)="getSelectedRows()">Get Selected Rows</button>
-            <input type="text" (input)="onQuickFilterChanged()" id="quickFilter" placeholder="quick filter..." />
+            <!-- <button class="row-btn" (click)="getSelectedRows()">Get Selected Rows</button> -->
             <ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [pagination]="true"
                 [paginationPageSize]="paginationPageSize" [rowData]="rowData" [columnDefs]="columnDefs"
                 [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)" rowSelection="multiple"

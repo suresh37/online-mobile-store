@@ -21,6 +21,8 @@ import { MessageDialogComponent } from './product/message-dialog/message-dialog'
 //import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthModule } from './auth/auth.module';
+//import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
 //import { ContactComponent } from './contact/contact.component';
 //import { HomeComponent } from './home/home.component';
 
@@ -59,7 +61,7 @@ import { AuthModule } from './auth/auth.module';
     MatProgressSpinnerModule,
     AgGridModule.withComponents([]) */
   ],
-  providers: [ProductService],
+  providers: [ProductService, CartService],
   bootstrap: [AppComponent],
   entryComponents: [MessageDialogComponent]
 })
