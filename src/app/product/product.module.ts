@@ -9,6 +9,7 @@ import { ProductDialogComponent } from './product-dialog/product-dialog.componen
 import { ActionRenderer } from './cell-renderer/action-renderer.component';
 import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
 import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
+import { ProductCompareDialogComponent } from './product-compare-dialog/product-compare-dialog.component';
 //import { MessageDialogComponent } from './message-dialog/message-dialog';
 
 @NgModule({
@@ -24,11 +25,12 @@ import { ProductAddDialogComponent } from './product-add-dialog/product-add-dial
         DialogContentExampleDialog,
         ProductEditDialogComponent,
         ProductDialogComponent,
-        ProductAddDialogComponent
+        ProductAddDialogComponent,
+        ProductCompareDialogComponent
         //MessageDialogComponent
     ],
     exports: [ProductComponent],
     entryComponents: [DialogContentExampleDialog, ProductDialogComponent,
-        ProductEditDialogComponent, ProductAddDialogComponent] // MessageDialogComponent
+        ProductEditDialogComponent, ProductAddDialogComponent, ProductCompareDialogComponent] // MessageDialogComponent
 })
 export class ProductModule { }

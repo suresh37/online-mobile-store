@@ -4,34 +4,44 @@
     "brandName": "Redmi",
     "price": 13999,
     "model": "Note 9 Pro",
-    "quantity": 10
+    "quantity": 10,
+    "os": "Android",
+    "year": 2020
   },
   {
     "id": 2,
     "brandName": "One Plus",
     "price": 42999,
     "model": "OP 8",
-    "quantity": 30
+    "quantity": 30,
+    "os": "Android",
+    "year": 2020
   },
   {
     "id": 3,
     "brandName": "Realme",
     "price": 15999,
     "model": "Realme 6",
-    "quantity": 7
+    "quantity": 7,
+    "os": "Android",
+    "year": 2020
   },
   {
     "id": 4,
     "brandName": "Samsung",
     "price": 14999,
     "model": "M30s",
-    "quantity": 20
+    "quantity": 20,
+    "os": "Android",
+    "year": 2020
   },
   {
     "id": 5,
     "brandName": "Iphone",
     "price": 37999,
     "model": "Iphone SE",
-    "quantity": 15
+    "quantity": 15,
+    "os": "IOS",
+    "year": 2020
   }
 ]

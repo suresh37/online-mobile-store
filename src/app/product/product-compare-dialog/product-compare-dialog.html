@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="dataSrc" class="mat-elevation-z8">
+    <!-- Implicit Column -->
+    <ng-container matColumnDef="specs">
+        <th mat-header-cell *matHeaderCellDef> Specs </th>
+        <td mat-cell *matCellDef="let item "> {{item.specs}} </td>
+    </ng-container>
+
+    <!-- Index Column -->
+    <ng-container matColumnDef="mobile1">
+        <th mat-header-cell *matHeaderCellDef> Mobile 1 </th>
+        <td mat-cell *matCellDef="let item"> {{item.mobile1}} </td>
+    </ng-container>
+
+    <!-- Count Column -->
+    <ng-container matColumnDef="mobile2">
+        <th mat-header-cell *matHeaderCellDef> Mobile 2 </th>
+        <td mat-cell *matCellDef="let item"> {{item.mobile2}} </td>
+    </ng-container>
+
+    <!-- First Column -->
+    <ng-container matColumnDef="mobile3">
+        <th mat-header-cell *matHeaderCellDef> Mobile 3 </th>
+        <td mat-cell *matCellDef="let item"> {{item.mobile3}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

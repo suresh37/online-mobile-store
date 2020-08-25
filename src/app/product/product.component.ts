@@ -10,6 +10,7 @@ import { ActionRenderer } from './cell-renderer/action-renderer.component';
 import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-dialog.component';
 import { MessageDialogComponent } from './message-dialog/message-dialog';
 import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
+import { ProductCompareDialogComponent } from './product-compare-dialog/product-compare-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -28,6 +29,7 @@ export class ProductComponent implements OnInit {
   public frameworkComponents;
   public paginationPageSize;
   public showCompareOption = false;
+  public filterText = '';
   public columnDefs = [
     { headerName: '', field: 'make', sortable: true, filter: true, checkboxSelection: true, width: 100 },
     { headerName: 'Brand Name', field: 'brandName', width: 100 },
@@ -68,13 +70,11 @@ export class ProductComponent implements OnInit {
     this.frameworkComponents = {
       actionRenderer: ActionRenderer,
     };
-    this.paginationPageSize = 10;
+    this.paginationPageSize = 5;
     //console.log('Reading local json file'); console.log(MobileApiJson); //this.rowData= MobileApiJson;
     productService.getJSON().subscribe(res => {
       console.log(res);
-      res.forEach(element => {
-        element.os = 'Android';
-      });
+      /*  res.forEach(element => { element.os = 'Android'; }); */
       this.rowData = res;
     });
   }
@@ -125,7 +125,51 @@ export class ProductComponent implements OnInit {
   }
 
   openCampareDialog() {
-    this.openMessageDialog("Comparing 3 mobiles");
+    if (!this.showCompareOption) {
+      this.openMessageDialog("Please select 3 mobiles to compare");
+      return;
+    }
+    let selectedNodes = this.gridApi.getSelectedNodes(); // api.getSelectedRows():
+    let selectedData = selectedNodes.map(node => node.data);
+    let transposedData = this.transpose(selectedData);
+    //console.log('Transposed Data', transposedData)
+    let finalData = this.getRightObj(transposedData);
+    console.log('Table Data', finalData);
+    const dialogRef = this.dialog.open(ProductCompareDialogComponent, {
+      data: finalData
+    });
+    //this.openMessageDialog("Comparing 3 mobiles");
+  }
+
+  public getRightObj(data) {
+    let res = [];
+    for (let i = 0; i < Object.keys(data).length - 1; i++) {
+      var newObj = {};
+      var currColumn = this.getColumn(i);
+      newObj['specs'] = currColumn;
+      newObj["mobile1"] = data[currColumn][0];
+      newObj["mobile2"] = data[currColumn][1];
+      newObj["mobile3"] = data[currColumn][2];
+      console.log("New Obj", newObj);
+      res.push(newObj);
+    }
+    return res;
+  }
+
+  public getColumn(index) {
+    var columns = ["brandName", "price", "model", "quantity", "os", "year"];
+    return columns[index];
+  }
+
+  public transpose(data) {
+    let result = {};
+    for (let row of data) {
+      for (let [key, value] of Object.entries(row)) {
+        result[key] = result[key] || [];
+        result[key].push(value);
+      }
+    }
+    return result;
   }
 
   openDialog() {
