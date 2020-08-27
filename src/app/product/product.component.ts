@@ -30,14 +30,15 @@ export class ProductComponent implements OnInit {
   public paginationPageSize;
   public showCompareOption = false;
   public filterText = '';
+  //private columnTypes;
   public columnDefs = [
-    { headerName: '', field: 'make', sortable: true, filter: true, checkboxSelection: true, width: 100 },
-    { headerName: 'Brand Name', field: 'brandName', width: 100 },
-    { headerName: 'Price', field: 'price', width: 100 },
-    { headerName: 'Model', field: 'model', width: 100 }, // , editable: true
-    { headerName: 'Quantity', field: 'quantity', width: 100 },
+    { headerName: '', field: 'make', sortable: false, filter: true, checkboxSelection: true, width: 30 },
+    { headerName: 'Brand Name', field: 'brandName', width: 70 },
+    { headerName: 'Price', field: 'price', width: 50 },
+    { headerName: 'Model', field: 'model', width: 70 }, // , editable: true
+    { headerName: 'Quantity', field: 'quantity', width: 30 },
     {
-      headerName: 'Action', field: 'id', width: 180,
+      headerName: 'Action', field: 'id', width: 100,
       cellRenderer: 'actionRenderer', colId: 'params'
     }
   ];
@@ -62,7 +63,7 @@ export class ProductComponent implements OnInit {
       editable: true,
       sortable: true,
       flex: 1,
-      minWidth: 200,
+      minWidth: 50,
       //minHeight: 500,
       filter: true,
       resizable: true
@@ -86,6 +87,7 @@ export class ProductComponent implements OnInit {
   public onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    this.gridApi.sizeColumnsToFit();
     //this.rowData= MobileApiJson;
     /*  this.http.get'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json')
        .subscribe(data => {  this.rowData = data;}); */
