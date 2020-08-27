@@ -22,6 +22,10 @@ export class CartService {
     return this.http.get("./assets/mobile-api.json");
   }
 
+  public addItemToCart(obj): void {
+        this.cartItems.push(obj);
+    }
+
 
   public getCartItems(): Observable<any> {
     return Observable.create(observer => {
