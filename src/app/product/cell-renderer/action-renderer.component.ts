@@ -33,6 +33,10 @@ export class ActionRenderer implements ICellRendererAngularComp {
         console.log(this.params);
         this.params.context.componentParent.deleteMobileDetailFromParent(this.params.data);
     }
+    public invokeAddCartMethod(){
+      console.log(this.params);
+        this.params.context.componentParent.addCartMethodFromParent(this.params.data);
+    }
 
     refresh(): boolean {
         return false;

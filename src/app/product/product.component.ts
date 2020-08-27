@@ -11,6 +11,7 @@ import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-d
 import { MessageDialogComponent } from './message-dialog/message-dialog';
 import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
 import { ProductCompareDialogComponent } from './product-compare-dialog/product-compare-dialog.component';
+import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -188,6 +189,15 @@ export class ProductComponent implements OnInit {
   // invoke method from renderer
   public methodFromParent(cell) {
     alert('Parent Component Method from ' + cell + '!');
+  }
+
+  public addCartMethodFromParent(cell){
+    console.log("Add Cart Method invoked");
+    const dialogRef = this.dialog.open(CartDialogComponent,{ data: cell });
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log("Dialog output:", data)
+      });
   }
 
   public showMobileDetailFromParent(cell) {

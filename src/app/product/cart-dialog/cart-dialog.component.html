@@ -1,1 +1,26 @@
-<p>cart-dialog works!</p>
+<!-- <p>cart-dialog works!</p> -->
+
+<mat-card class="cart-mat-card">
+	<mat-card-header>
+		<mat-card-title>Add/Edit Cart</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>
+		<form class="cart-form">
+			<table > <!-- class="full-width" -->
+				<tr>
+					<td>
+						{{product}}
+					</td>
+					<td>
+						<mat-form-field > <!-- class="full-width" -->
+							<input matInput placeholder="count" [(ngModel)]="count" name="count" required>
+            </mat-form-field>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</mat-card-content>
+	<mat-card-actions>
+		<button id="submitBtn" mat-raised-button (click)="save()" color="primary">Save</button>
+	</mat-card-actions>
+</mat-card>

@@ -9,22 +9,30 @@ import { CartService } from 'src/app/cart/cart.service';
 })
 export class CartDialogComponent implements OnInit {
 
+  product: string;
+  count: number;
+
   constructor(public dialogRef: MatDialogRef<CartDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
   public cartService: CartService) {
         console.log("Inside cart dialog")
         console.log(data);
+        this.product = data.brandName+" "+data.model;
+        this.count = 1;
     }
 
   ngOnInit() {
   }
 
   save() {
-        var obj = {};
+        var obj = {
+           product: this.product,
+           count: this.count
+        };
         this.cartService.addItemToCart(obj);
-        this.dialogRef.close("dialog closed");
+        this.dialogRef.close("Added to cart");
     }
 
-    close() {
+  close() {
         this.dialogRef.close("cart dialog closed");
     }
 

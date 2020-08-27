@@ -14,25 +14,26 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 //import { MessageDialogComponent } from './message-dialog/message-dialog';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        ProductRoutingModule,
-        SharedModule,
-        AgGridModule.withComponents([ActionRenderer])
-    ],
-    declarations: [
-        ProductComponent,
-        ActionRenderer,
-        DialogContentExampleDialog,
-        ProductEditDialogComponent,
-        ProductDialogComponent,
-        ProductAddDialogComponent,
-        ProductCompareDialogComponent,
-        CartDialogComponent
-        //MessageDialogComponent
-    ],
-    exports: [ProductComponent],
-    entryComponents: [DialogContentExampleDialog, ProductDialogComponent,
-        ProductEditDialogComponent, ProductAddDialogComponent, ProductCompareDialogComponent] // MessageDialogComponent
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    SharedModule,
+    AgGridModule.withComponents([ActionRenderer])
+  ],
+  declarations: [
+    ProductComponent,
+    ActionRenderer,
+    DialogContentExampleDialog,
+    ProductEditDialogComponent,
+    ProductDialogComponent,
+    ProductAddDialogComponent,
+    ProductCompareDialogComponent,
+    CartDialogComponent
+    //MessageDialogComponent
+  ],
+  exports: [ProductComponent],
+  entryComponents: [DialogContentExampleDialog, ProductDialogComponent,
+    ProductEditDialogComponent, ProductAddDialogComponent, ProductCompareDialogComponent,
+    CartDialogComponent] // MessageDialogComponent
 })
 export class ProductModule { }

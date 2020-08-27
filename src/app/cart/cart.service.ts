@@ -24,6 +24,7 @@ export class CartService {
 
   public addItemToCart(obj): void {
         this.cartItems.push(obj);
+        console.log(this.cartItems);
     }
 
 
