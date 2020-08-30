@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -11,6 +12,10 @@ export class CartComponent implements OnInit {
   public items;
 
   constructor(public cartService: CartService) {
+    this.getCartData();
+  }
+
+  getCartData() {
     this.cartService.getCartItems()
       .subscribe(items => {
         this.items = items
@@ -19,7 +24,13 @@ export class CartComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
+  }
+
+  deleteCartItem(item: any) {
+    console.log(item);
+    this.cartService.deleteCartItem(item);
   }
 
 }

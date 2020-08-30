@@ -6,15 +6,18 @@
 	</mat-card-header>
 	<mat-card-content>
 		<form class="cart-form">
-			<table > <!-- class="full-width" -->
+			<table>
+				<!-- class="full-width" -->
 				<tr>
 					<td>
 						{{product}}
 					</td>
-					<td>
-						<mat-form-field > <!-- class="full-width" -->
-							<input matInput placeholder="count" [(ngModel)]="count" name="count" required>
-            </mat-form-field>
+					<td class="left-space">
+						<mat-form-field>
+							<!-- class="full-width" -->
+							<input class="left-space" matInput placeholder="count" [(ngModel)]="count" name="count"
+								required>
+						</mat-form-field>
 					</td>
 				</tr>
 			</table>

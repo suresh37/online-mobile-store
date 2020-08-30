@@ -7,10 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   public _jsonURL = 'assets/mobile-api.json';
-  public cartItems: any[] = [{
-    product: "Redmi Note 9 pro",
-    count: 2
-  }];
+  public cartItems: any[] =
+    [{
+      product: "Redmi Note 9 pro",
+      count: 2
+    },
+    {
+      product: "Redmi Note 9 pro New",
+      count: 2
+    }];
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(data => {
       console.log("service to mobile-api json - constructor")
@@ -23,9 +28,9 @@ export class CartService {
   }
 
   public addItemToCart(obj): void {
-        this.cartItems.push(obj);
-        console.log(this.cartItems);
-    }
+    this.cartItems.push(obj);
+    console.log(this.cartItems);
+  }
 
 
   public getCartItems(): Observable<any> {
@@ -34,5 +39,22 @@ export class CartService {
       observer.next(this.cartItems);
       observer.complete();
     })
+  }
+
+  public deleteCartItem(itemRemove) {
+
+    var newCartItems = this.cartItems.filter((item) => item.product !== itemRemove.product);
+    console.log("filtered items", newCartItems)
+    var newItems = [];
+    for (var i = 0; i < newCartItems.length; i++) {
+      console.log("adding item");
+      console.log(newCartItems[i]);
+      newItems.push(newCartItems[i]);
+    }
+    this.cartItems = [];
+    newItems.forEach((item) => {
+      this.cartItems.push(item);
+    })
+    //this.cartItems.push(...this.cartItems);
   }
 }

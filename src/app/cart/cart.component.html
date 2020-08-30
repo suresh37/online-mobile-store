@@ -9,6 +9,9 @@
     <mat-card-content>
         <p *ngFor="let it of items">
             {{it?.product}} x {{it?.count}}
+            <button (click)="deleteCartItem(it)" mat-button color="primary" aria-label="delete icon">
+                <mat-icon>delete</mat-icon>
+            </button>
         </p>
     </mat-card-content>
     <!-- <mat-card-actions>
