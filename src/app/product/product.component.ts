@@ -12,6 +12,7 @@ import { MessageDialogComponent } from './message-dialog/message-dialog';
 import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
 import { ProductCompareDialogComponent } from './product-compare-dialog/product-compare-dialog.component';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 //import '@ag-grid-community/core/dist/styles/ag-grid.css';
 //import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
 @Component({
@@ -191,9 +192,9 @@ export class ProductComponent implements OnInit {
     alert('Parent Component Method from ' + cell + '!');
   }
 
-  public addCartMethodFromParent(cell){
+  public addCartMethodFromParent(cell) {
     console.log("Add Cart Method invoked");
-    const dialogRef = this.dialog.open(CartDialogComponent,{ data: cell });
+    const dialogRef = this.dialog.open(CartDialogComponent, { data: cell });
     dialogRef.afterClosed().subscribe(
       data => {
         console.log("Dialog output:", data)
@@ -243,12 +244,24 @@ export class ProductComponent implements OnInit {
   }
 
   public deleteMobileDetailFromParent(cell) {
-    console.log(cell);
-    this.rowData = this.rowData.filter(function (element) { return element.id != cell.id; });
-    this.openMessageDialog(cell.brandName + " " + cell.model + " Mobile has been deleted");
-    /*  this.dialog.open(ProductDialogComponent, {
-       data: cell
-     }); */
+    const msg = "delete " + cell.brandName + " " + cell.model;
+    const message = 'Are you sure you want to ' + msg + '?';
+    var result = false;
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: { message: message }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (!dialogResult) return;
+      console.log(cell);
+      this.rowData = this.rowData.filter(function (element) { return element.id != cell.id; });
+      this.openMessageDialog(cell.brandName + " " + cell.model + " Mobile has been deleted");
+      /*  this.dialog.open(ProductDialogComponent, {
+         data: cell
+       }); */
+    });
+
   }
 
   openMessageDialog(message) {
@@ -264,6 +277,20 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  /* confirmation popup*/
+  public confirmDialog(msg) {
+    const message = 'Are you sure you want to ' + msg + '?';
+    var result = false;
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: { message: message }
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      result = dialogResult;
+      return result;
+    });
+  }
 }
 
 @Component({

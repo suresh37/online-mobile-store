@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AuthModule } from './auth/auth.module';
 //import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
+import { ConfirmDialogComponent } from './product/confirm-dialog/confirm-dialog.component';
 //import { ContactComponent } from './contact/contact.component';
 //import { HomeComponent } from './home/home.component';
 
@@ -34,7 +35,8 @@ import { CartService } from './cart/cart.service';
     //HomeComponent,
     //NavbarComponent,
     PageNotFoundComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    ConfirmDialogComponent
     //ContactComponent
   ],
   imports: [
@@ -63,6 +65,6 @@ import { CartService } from './cart/cart.service';
   ],
   providers: [ProductService, CartService],
   bootstrap: [AppComponent],
-  entryComponents: [MessageDialogComponent]
+  entryComponents: [MessageDialogComponent, ConfirmDialogComponent]
 })
 export class AppModule { }

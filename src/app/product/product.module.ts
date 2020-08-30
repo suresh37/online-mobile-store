@@ -11,6 +11,7 @@ import { ProductEditDialogComponent } from './product-edit-dialog/product-edit-d
 import { ProductAddDialogComponent } from './product-add-dialog/product-add-dialog.component';
 import { ProductCompareDialogComponent } from './product-compare-dialog/product-compare-dialog.component';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+//import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 //import { MessageDialogComponent } from './message-dialog/message-dialog';
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
     ProductDialogComponent,
     ProductAddDialogComponent,
     ProductCompareDialogComponent,
-    CartDialogComponent
+    CartDialogComponent,
+    //ConfirmDialogComponent
     //MessageDialogComponent
   ],
   exports: [ProductComponent],

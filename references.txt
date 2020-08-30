@@ -30,9 +30,15 @@ https://www.ag-grid.com/javascript-grid-data-update/
 Toolbar
 https://stackoverflow.com/questions/38209713/how-to-make-a-responsive-nav-bar-using-angular-material-2
 https://www.techiediaries.com/angular-material-navigation-toolbar-sidenav/
+https://stackoverflow.com/questions/43200545/create-a-responsive-toolbar-using-angular-material
+https://github.com/mainawycliffe/Responsive-Navbar-with-Angular-Material-and-Angular-Flex-Layout
 
 Buttons & icons
 https://material.angular.io/components/button/examples
 
 Pagination
 https://www.ag-grid.com/javascript-grid-pagination/
+
+Confirmation Dialog
+https://onthecode.co.uk/create-confirm-dialog-angular-material/
+https://stackblitz.com/edit/reusable-confirmation-dialog-angular-material
