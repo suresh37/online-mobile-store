@@ -6,22 +6,30 @@
 		<mat-card-content>
 			<div id="addBtn">
 				<button (click)="addMobile()" mat-icon-button aria-label="Example icon-button with a heart icon">
-                    <mat-icon>add_circle</mat-icon> <!-- add_circle_outline -->
-                    Add Mobile
-                </button>
+					<mat-icon>add_circle</mat-icon> <!-- add_circle_outline -->
+					Add Mobile
+				</button>
 			</div>
 			Page Size:
 			<select (change)="onPageSizeChanged()" id="page-size">
-                <option value="5" selected="">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-            </select>
-			<input class="row-btn-new" type="text" (input)="onQuickFilterChanged()" id="quickFilter"
-                placeholder="quick filter..." />
+				<option value="5" selected="">5</option>
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+			</select>
+			<!-- <input class="row-btn-new" type="text" (input)="onQuickFilterChanged()" id="quickFilter"
+				placeholder="quick filter..." /> -->
+			<mat-form-field class="row-btn-new example-form-field">
+				<mat-label>quick filter...</mat-label>
+				<input matInput type="text" (input)="onQuickFilterChanged()" id="quickFilter">
+				<button mat-button matSuffix mat-icon-button disabled>
+					<mat-icon>search</mat-icon>
+				</button>
+			</mat-form-field>
+
 			<button class="row-btn" mat-raised-button [attr.color]="showCompareOption?'primary':'disabled'"
-                (click)="openCampareDialog()">
-                Compare Phones</button>
+				(click)="openCampareDialog()">
+				Compare Phones</button>
 			<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
 			<!-- <button class="row-btn" (click)="getSelectedRows()">Get Selected Rows</button> -->
 			<ag-grid-angular class="ag-theme-alpine" #agGrid id="myGrid" [pagination]="true"
