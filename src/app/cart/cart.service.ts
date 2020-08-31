@@ -42,19 +42,6 @@ export class CartService {
   }
 
   public deleteCartItem(itemRemove) {
-
-    var newCartItems = this.cartItems.filter((item) => item.product !== itemRemove.product);
-    console.log("filtered items", newCartItems)
-    var newItems = [];
-    for (var i = 0; i < newCartItems.length; i++) {
-      console.log("adding item");
-      console.log(newCartItems[i]);
-      newItems.push(newCartItems[i]);
-    }
-    this.cartItems = [];
-    newItems.forEach((item) => {
-      this.cartItems.push(item);
-    })
-    //this.cartItems.push(...this.cartItems);
+    this.cartItems = this.cartItems.filter((item) => item.product !== itemRemove.product);
   }
 }

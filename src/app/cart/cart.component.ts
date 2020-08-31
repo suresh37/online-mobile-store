@@ -31,6 +31,7 @@ export class CartComponent implements OnInit {
   deleteCartItem(item: any) {
     console.log(item);
     this.cartService.deleteCartItem(item);
+    this.getCartData();
   }
 
 }
