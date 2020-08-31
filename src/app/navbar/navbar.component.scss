@@ -1,4 +1,4 @@
- #bottom {
+#bottom {
                 position:absolute;
                 bottom:0;
                 left:0;
@@ -44,9 +44,6 @@ button{
     padding: 0 14px;
   }
 
-/* .nav-spacer {
-    flex: 1 1 auto;
-  }  */
 .icon-spacer{
      flex: 1 1 auto;
   }
@@ -62,11 +59,17 @@ button{
 }
 
 .active-link {
-  background-color: #93c5e9be !important; /* Note: You could also use a custom theme */
+  background-color: #93c5e9be !important;
 }
 
-/* ::ng-deep .mat-button.active 
-{ 
+/* Note: You could also use a custom theme */
+
+/* .nav-spacer {
+    flex: 1 1 auto;
+  }  */
+
+/* ::ng-deep .mat-button.active
+{
   color: yellow !important;
  }
  */
@@ -75,3 +78,11 @@ button{
       font-size: 200%;
       text-align: center;
   } */
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

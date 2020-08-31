@@ -7,15 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   public _jsonURL = 'assets/mobile-api.json';
-  public cartItems: any[] =
-    [{
+  public cartItems: any[] = [];
+    /* [{
       product: "Redmi Note 9 pro",
       count: 2
     },
     {
       product: "Redmi Note 9 pro New",
       count: 2
-    }];
+    }]; */
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(data => {
       console.log("service to mobile-api json - constructor")
