@@ -32,7 +32,7 @@
     "ag-grid-angular": "^23.2.1",
     "ag-grid-community": "^23.2.1",
     "bootstrap": "^4.5.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.5.1",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.6.2",
